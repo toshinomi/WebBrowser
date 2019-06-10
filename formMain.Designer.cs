@@ -1,6 +1,6 @@
 ﻿namespace WebBrowser
 {
-    partial class formMain
+    partial class FormMain
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMain));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFile_NewOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFile_End = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,21 +37,21 @@
             this.menuWindow_Cascade = new System.Windows.Forms.ToolStripMenuItem();
             this.menuWindow_TileHorizontal = new System.Windows.Forms.ToolStripMenuItem();
             this.menuWindow_TileVertical = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuFile,
             this.menuWindow});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(480, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip.Size = new System.Drawing.Size(480, 24);
+            this.menuStrip.TabIndex = 1;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // menuFile
             // 
@@ -68,7 +68,7 @@
             this.menuFile_NewOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.menuFile_NewOpen.Size = new System.Drawing.Size(227, 22);
             this.menuFile_NewOpen.Text = "新規ウィンドウを開く(&N)";
-            this.menuFile_NewOpen.Click += new System.EventHandler(this.menuFile_NewOpen_Click);
+            this.menuFile_NewOpen.Click += new System.EventHandler(this.OnClickMenuFileNewOpen);
             // 
             // menuFile_End
             // 
@@ -76,7 +76,7 @@
             this.menuFile_End.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.menuFile_End.Size = new System.Drawing.Size(227, 22);
             this.menuFile_End.Text = "終了(&X)";
-            this.menuFile_End.Click += new System.EventHandler(this.menuFile_End_Click);
+            this.menuFile_End.Click += new System.EventHandler(this.OnClickMenuFileEnd);
             // 
             // menuWindow
             // 
@@ -95,7 +95,7 @@
             | System.Windows.Forms.Keys.E)));
             this.menuWindow_Cascade.Size = new System.Drawing.Size(244, 22);
             this.menuWindow_Cascade.Text = "重ねて表示(&E)";
-            this.menuWindow_Cascade.Click += new System.EventHandler(this.menuWindow_Cascade_Click);
+            this.menuWindow_Cascade.Click += new System.EventHandler(this.OnClickMenuWindowCascade);
             // 
             // menuWindow_TileHorizontal
             // 
@@ -104,7 +104,7 @@
             | System.Windows.Forms.Keys.H)));
             this.menuWindow_TileHorizontal.Size = new System.Drawing.Size(244, 22);
             this.menuWindow_TileHorizontal.Text = "上下に並べて表示(&H)";
-            this.menuWindow_TileHorizontal.Click += new System.EventHandler(this.menuWindow_TileHorizontal_Click);
+            this.menuWindow_TileHorizontal.Click += new System.EventHandler(this.OnClickMenuWindowTileHorizontal);
             // 
             // menuWindow_TileVertical
             // 
@@ -113,23 +113,24 @@
             | System.Windows.Forms.Keys.T)));
             this.menuWindow_TileVertical.Size = new System.Drawing.Size(244, 22);
             this.menuWindow_TileVertical.Text = "左右に並べて表示(&T)";
-            this.menuWindow_TileVertical.Click += new System.EventHandler(this.menuWindow_TileVertical_Click);
+            this.menuWindow_TileVertical.Click += new System.EventHandler(this.OnClickMenuWindowTileVertical);
             // 
-            // formMain
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(480, 300);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "formMain";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formMain_FormClosed);
-            this.Load += new System.EventHandler(this.formMain_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FormMain";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnFormClosedFormMain);
+            this.Load += new System.EventHandler(this.OnLoadFormMain);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,7 +138,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuFile;
         private System.Windows.Forms.ToolStripMenuItem menuFile_NewOpen;
         private System.Windows.Forms.ToolStripMenuItem menuWindow;

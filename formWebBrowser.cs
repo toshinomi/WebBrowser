@@ -10,24 +10,59 @@ using System.Windows.Forms;
 
 namespace WebBrowser
 {
-    public partial class formWebBrowser : Form
+    public partial class FormWebBrowser : Form
     {
-        private const string HOME_URL = "https://www.google.co.jp/";
+        private const string HOME_URL = "https://www.bing.com/";
         private string m_strUrl;
         private ToolTip m_toolTip;
 
-        public formWebBrowser()
+        public FormWebBrowser()
         {
             InitializeComponent();
             m_strUrl = "";
         }
 
-        ~formWebBrowser()
+        ~FormWebBrowser()
         {
             m_toolTip = null;
         }
 
-        private void textUrl_KeyDown(object sender, KeyEventArgs e)
+        public void OnFormClosedFormWebBrowser(object sender, FormClosedEventArgs e)
+        {
+            FormMain formMain = (FormMain)this.MdiParent;
+            FormWebBrowser form = formMain.GetFormWebBrowser(uint.Parse(this.Name));
+            form = null;
+            formMain.RemoveListWebBrowser(uint.Parse(this.Name));
+        }
+
+        public void OnLoadFormWebBrowser(object sender, EventArgs e)
+        {
+            SetInitToolTip();
+            HomeWebBrowser();
+        }
+
+        public void OnClickBack(object sender, EventArgs e)
+        {
+            if (webBrowser.CanGoBack == true)
+            {
+                webBrowser.GoBack();
+            }
+        }
+
+        public void OnClickForward(object sender, EventArgs e)
+        {
+            if (webBrowser.CanGoForward == true)
+            {
+                webBrowser.GoForward();
+            }
+        }
+
+        public void OnClickRefresh(object sender, EventArgs e)
+        {
+            webBrowser.Refresh();
+        }
+
+        public void OnKeyDownTextUrl(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -36,58 +71,24 @@ namespace WebBrowser
             }
         }
 
-        private void formWebBrowser_FormClosed(object sender, FormClosedEventArgs e)
+        public void OnNavigatedWebBrowser(object sender, WebBrowserNavigatedEventArgs e)
         {
-            formWebBrowser form = Program.g_listWebBrowser[uint.Parse(this.Name)];
-            form = null;
-            Program.g_listWebBrowser.Remove(uint.Parse(this.Name));
+            textUrl.Text = webBrowser.Url.AbsoluteUri;
+            this.Text = webBrowser.Url.AbsoluteUri;
         }
 
-        private void formWebBrowser_Load(object sender, EventArgs e)
-        {
-            setInitToolTip();
-            showHome();
-        }
-
-        private void setInitToolTip()
+        public void SetInitToolTip()
         {
             m_toolTip = new ToolTip();
-            m_toolTip.SetToolTip(textUrl, "After entering the URL, please press the enter key!!!");
+            m_toolTip.SetToolTip(textUrl, "URL入力後、Enterキーを押してください!!!");
         }
 
-        private void showHome()
+        public void HomeWebBrowser()
         {
             Uri uri = new Uri(HOME_URL);
             webBrowser.Navigate(uri);
             textUrl.Text = m_strUrl;
             this.Text = m_strUrl;
-        }
-
-        private void buttonAbove_Click(object sender, EventArgs e)
-        {
-            if ( webBrowser.CanGoBack == true )
-            {
-                webBrowser.GoBack();
-            }
-        }
-
-        private void buttonNext_Click(object sender, EventArgs e)
-        {
-            if (webBrowser.CanGoForward == true)
-            {
-                webBrowser.GoForward();
-            }
-        }
-
-        private void buttonRefresh_Click(object sender, EventArgs e)
-        {
-            webBrowser.Refresh();
-        }
-
-        private void formWebBrowser_Navigated(object sender, WebBrowserNavigatedEventArgs e)
-        {
-            textUrl.Text = webBrowser.Url.AbsoluteUri;
-            this.Text = webBrowser.Url.AbsoluteUri;
         }
     }
 }

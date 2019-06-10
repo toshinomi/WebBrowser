@@ -149,10 +149,10 @@
         y3QYWFu24MATQuuzCeE/N6Dv5QrVQmMdc4kmJRFrKlXr61QCDvcPW1b1IxUdUBUAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="buttonNext.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonForward.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
-        JQAAFiUBSVIk8AAACLpJREFUWEetlwdYVFcWx69ETWyAiIKCIARpOiJoUMGCogZFEFCR3hGBUKRKEQQE
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAACLpJREFUWEetlwdYVFcWx69ETWyAiIKCIARpOiJoUMGCogZFEFCR3hGBUKRKEQQE
         K2LWAihCgsAMDCAgmMQYYwF1kzWJJdkYybpGUTRYsoplUf45981QdF03Zj3f9/+G95i5v9Puue+x1zQF
         lsCMB2Uquoh2iGKn7rZIn5xnnqqdrR3C0tg85s9U6Dt9ZF99k5bAJlgXWO/wrghoialNQEbDRqTUZSKp
         Jg2JpDV1GUioS4WvNLDDsXTpcY1sjSBmz4bIf/1/2Gqma/uRfVVcTVInB0ZLExFVkYDI8niEl8cirDwG
@@ -192,10 +192,10 @@
         rCmQ+MI8papMg2nSRBsp/C27x//Hv/MHjbHfAS0IUiQiF+/BAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="buttonAbove.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
-        JQAAFiUBSVIk8AAACLJJREFUWEetlwdUlFcWxz9ZddcYESzYENRFpUpTQBBEBBQFRAiE3lE6SJMiiAoW
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAACLJJREFUWEetlwdUlFcWxz9ZddcYESzYENRFpUpTQBBEBBQFRAiE3lE6SJMiiAoW
         ImAJRSIYgjAzzEgZITHZlWjUbI7BBGONq5tk7cbNbo7GqMPw3/u+mRGI/ST3nHs+Zph5v9ve/73hXtPU
         uBzOcGSxur/Ju6aZNjW2G+dWW63XLdWN5zZwLlwUN4Y+M0Tx0T/Scrg5TrXOFeHCyBsZ7TnY1LkNBdIi
         5LVtQC55vnQTcqTrESGOka1s8j42uWxyLOfJjVJ++3dYNjfDrc6jJastr6+gvRjp4lykNecgVbQWyaJM

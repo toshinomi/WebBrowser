@@ -10,80 +10,91 @@ using System.Windows.Forms;
 
 namespace WebBrowser
 {
-    public partial class formMain : Form
+    public partial class FormMain : Form
     {
         private uint m_nCountWebBrowser;
+        private Dictionary<uint, FormWebBrowser> m_listWebBrowser;
 
-        public formMain()
+        public FormMain()
         {
             InitializeComponent();
-            Program.g_listWebBrowser = new Dictionary<uint, formWebBrowser>();
+            m_listWebBrowser = new Dictionary<uint, FormWebBrowser>();
         }
 
-        ~formMain()
+        ~FormMain()
         {
-            Program.g_listWebBrowser.Clear();
-            Program.g_listWebBrowser = null;
+            m_listWebBrowser.Clear();
+            m_listWebBrowser = null;
             m_nCountWebBrowser = 0;
         }
 
-        private void formMain_Load(object sender, EventArgs e)
+        public void OnLoadFormMain(object sender, EventArgs e)
         {
-            setFormMain();
-            setFormChild();
+            SetFormMain();
+            SetFormChild();
         }
 
-        private void setFormMain()
+        public void OnClickMenuFileNewOpen(object sender, EventArgs e)
         {
-            this.Size = new Size(1000, 600);
+            SetFormChild();
         }
 
-        private void setFormChild()
-        {
-            formWebBrowser form = new formWebBrowser();
-            form.MdiParent = this;
-            form.WindowState = FormWindowState.Minimized;
-            form.Show();
-            form.Name = m_nCountWebBrowser.ToString();
-            form.WindowState = FormWindowState.Maximized;
-            Program.g_listWebBrowser.Add(uint.Parse(form.Name), form);
-            m_nCountWebBrowser += 1;
-        }
-
-        private void menuFile_NewOpen_Click(object sender, EventArgs e)
-        {
-            setFormChild();
-        }
-
-        private void menuWindow_Cascade_Click(object sender, EventArgs e)
+        public void OnClickMenuWindowCascade(object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.Cascade);
         }
 
-        private void menuWindow_TileHorizontal_Click(object sender, EventArgs e)
+        public void OnClickMenuWindowTileHorizontal(object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.TileHorizontal);
         }
 
-        private void menuWindow_TileVertical_Click(object sender, EventArgs e)
+        public void OnClickMenuWindowTileVertical(object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.TileVertical);
         }
 
-        private void menuFile_End_Click(object sender, EventArgs e)
+        public void OnClickMenuFileEnd(object sender, EventArgs e)
         {
-            foreach (uint nKey in Program.g_listWebBrowser.Keys)
+            foreach (uint nKey in m_listWebBrowser.Keys)
             {
-                formWebBrowser form = Program.g_listWebBrowser[nKey];
+                FormWebBrowser form = m_listWebBrowser[nKey];
                 form = null;
             }
             this.Close();
         }
 
-        private void formMain_FormClosed(object sender, FormClosedEventArgs e)
+        public void OnFormClosedFormMain(object sender, FormClosedEventArgs e)
         {
-            Program.g_listWebBrowser.Clear();
-            Program.g_listWebBrowser = null;
+            m_listWebBrowser.Clear();
+            m_listWebBrowser = null;
+        }
+
+        public void SetFormMain()
+        {
+            this.Size = new Size(1000, 600);
+        }
+
+        public void SetFormChild()
+        {
+            FormWebBrowser form = new FormWebBrowser();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Minimized;
+            form.Show();
+            form.Name = m_nCountWebBrowser.ToString();
+            form.WindowState = FormWindowState.Maximized;
+            m_listWebBrowser.Add(uint.Parse(form.Name), form);
+            m_nCountWebBrowser += 1;
+        }
+
+        public FormWebBrowser GetFormWebBrowser(uint nKey)
+        {
+            return m_listWebBrowser[nKey];
+        }
+
+        public void RemoveListWebBrowser(uint nKey)
+        {
+            m_listWebBrowser.Remove(nKey);
         }
     }
 }

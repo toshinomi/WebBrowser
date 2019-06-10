@@ -16,8 +16,7 @@ namespace WebBrowser
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formMain());
+            Application.Run(new FormMain());
         }
-        static public Dictionary<uint, formWebBrowser> g_listWebBrowser;
     }
 }
